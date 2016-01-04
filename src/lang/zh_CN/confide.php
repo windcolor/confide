@@ -6,7 +6,7 @@ return array(
     'password' => '密码',
     'password_confirmation' => '确认密码',
     'e_mail' => '电子邮件',
-    'username_e_mail' => '用户名或者电子邮件',
+    'username_e_mail' => '用户名/老年卡号',
 
     'signup' => array(
         'title' => '注册',

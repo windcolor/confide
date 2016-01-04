@@ -43,14 +43,16 @@ class UserValidator implements UserValidatorInterface
      */
     public $rules = [
         'create' => [
-            'username' => 'alpha_dash',
-            'email'    => 'required|email',
+            'username' => 'alpha_dash|min:4',
+            //'email'    => 'required|email',
             'password' => 'required|min:4',
+            'card'     => 'required|min:4',
         ],
         'update' => [
-            'username' => 'alpha_dash',
-            'email'    => 'required|email',
+            'username' => 'alpha_dash|min:4',
+            //'email'    => 'required|email',
             'password' => 'required|min:4',
+            'card' => 'required|min:4',
         ]
     ];
 
@@ -117,11 +119,13 @@ class UserValidator implements UserValidatorInterface
     public function validateIsUnique(ConfideUserInterface $user)
     {
         $identity = [
-            'email' => $user->email,
-            'username' => $user->username,
+           // 'email' => $user->email,
+           'card'=>$user->card,
+           'username' => $user->username,
         ];
 
         $identity = array_filter($identity);
+
 
         foreach ($identity as $attribute => $value) {
 
